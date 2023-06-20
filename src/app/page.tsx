@@ -1,14 +1,11 @@
-import { Button } from '@/components/Segundo';
-import {Teste, Segundo} from '@/components/Teste';
+import { Content } from "@/components/content";
 
 
 const Page = () => {
   return (
     <div className="font-bold">
         <h1>o bagulho e doido</h1>
-        <Teste/>
-        <Button/>
-        <Segundo/>
+        <Content />
     </div>
   );
 }
