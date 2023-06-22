@@ -7,6 +7,7 @@ export const Teste = () => {
 }
 
 export const Segundo = () => {
+    
     return(
         <h1>janela</h1>
     );
