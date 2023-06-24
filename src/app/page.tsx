@@ -18,7 +18,7 @@ const Page = () => {
         <Person 
           nome="newton"
           avatar="https://img.olhardigital.com.br/wp-content/uploads/2023/01/Destaque-foguete-1024x576.jpg"
-          roles={['ola', 'opa']}
+          roles={['ola', 'opa']} 
         />
 
       <Interno>
