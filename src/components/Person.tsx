@@ -17,8 +17,9 @@ export const Person = ({nome = 'op', avatar, roles, autor}: Cont) => {
                 <li>{roles[1]}</li>
             </ul>
            
-            <p>autor do componente é o {autor ?? 'desconhecido'}</p>
-        
+            { autor && <p>autor do componente é o {autor ?? 'desconhecido'}</p>}
+
+            { !autor && <p>autor do componente é o {autor ?? 'desconhecido'}</p>}
             
         </>
     );
