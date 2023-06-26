@@ -1,31 +1,36 @@
-import { Person } from "@/components/Person";
-import { Content } from "@/components/content";
+import React from 'react';
+import { Person } from '@/components/Person';
+import { Relogio } from '@/components/Relogio';
+import { Content } from '@/components/content';
+import { Interno } from '@/components/interno';
 
-import {Interno} from "@/components/interno";
-import { PeopleList } from "@/data/pepleList";
 
-const getDay = ()  => {
-  return new Intl.DateTimeFormat('pt-BR', {weekday: 'long'}).format(new Date());
-}
+/* const getDay = () => {
+  return new Intl.DateTimeFormat('pt-BR', { weekday: 'long' }).format(new Date());
+}; */
 
-const engineer = PeopleList.filter(person => person.profession == "engineer");
+const getFrase = (hora: number): string => {
+  if (hora >= 6 && hora < 12) {
+    return 'Bom dia!';
+  } else if (hora >= 12 && hora < 18) {
+    return 'Boa tarde!';
+  } else {
+    return 'Boa noite!';
+  }
+};
+
 const Page = () => {
-  
-  return (
-    <div className="font-bold">
+  const agora = new Date();
+  const hora = agora.getHours();
+  const minutos = agora.getMinutes();
+  const frase = getFrase(hora);
 
-      {engineer.length > 0 &&
-      <ul>
-        {engineer.map(list => 
-          <li key={list.id}> {list.name} - {list.profession}</li>
-      )}
-      </ul>
-      }
-       
-      
+  return (
+    <div className="flex items-center flex-col justify-center h-screen bg-gradient-to-r from-blue-500 to-blue-700">
+      <div className="text-9xl text-white block">{hora}:{minutos}</div>
+      <div className="text-4xl text-white block">{frase}</div>
     </div>
   );
-}
+};
 
 export default Page;
-
