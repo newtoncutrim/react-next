@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { Person } from '@/components/Person';
 import { Relogio } from '@/components/Relogio';
@@ -6,6 +7,9 @@ import { Interno } from '@/components/interno';
 import { Nota } from '@/components/Nota';
 import { StudentList } from '@/components/studentList';
 import { students } from '@/data/estudents';
+import { Botao } from '@/components/butoonEvent';
+import { Botao2 } from '@/components/buttonEvent2';
+import { FormEvent } from 'react';
 
 /* const getDay = () => {
   return new Intl.DateTimeFormat('pt-BR', { weekday: 'long' }).format(new Date());
@@ -23,9 +27,34 @@ import { students } from '@/data/estudents';
 
 const Page = () => {
 
+  /* const handleClik1 = () => {
+    alert('botao 1');
+  }
+  const handleClik2 = () => {
+    alert('botao 2');
+  }
+  const handleClik3 = () => {
+    alert('botao 3');
+  } */
+  const click = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    alert('mandei');
+  }
+
+
   return (
-    <div className="container mx-auto ">
-      <StudentList students={students}/>
+    <div className="container mx-auto w-screen h-screen justify-center items-center">
+      <h1>Form de Login</h1>
+      <form onSubmit={click}>
+        <label htmlFor="nome" >Nome:</label><br />
+        <input type="text" />
+        <input type="submit" value="enviar" />
+      </form>
+      {/* <Botao/> */}
+      {/* <Botao2 label='click aqui 1' aoClick={handleClik1}/>
+      <Botao2 label='click aqui 2' aoClick={handleClik2}/>
+      <Botao2 label='click aqui 3' aoClick={handleClik3}/> */}
+      {/* <StudentList students={students}/> */}
     </div>
   ); 
 };
