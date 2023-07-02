@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
 import { Person } from '@/components/Person';
 import { Relogio } from '@/components/Relogio';
 import { Content } from '@/components/content';
@@ -36,20 +36,27 @@ const Page = () => {
   const handleClik3 = () => {
     alert('botao 3');
   } */
-  const click = (e: FormEvent<HTMLFormElement>) => {
+  
+/*   const click = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert('mandei');
+  } */
+  const [num, setNum] = useState(0);
+  function click(){
+    setNum(num + 1);
   }
 
 
   return (
-    <div className="container mx-auto w-screen h-screen justify-center items-center">
-      <h1>Form de Login</h1>
+    <div className="container mx-auto w-screen h-screen justify-center items-center flex flex-col">
+      <p>{num}</p>
+      <button onClick={click} className='bg-gray-300 p-4 justify-center items-center'>+1</button>
+      {/* <h1>Form de Login</h1>
       <form onSubmit={click}>
         <label htmlFor="nome" >Nome:</label><br />
         <input type="text" />
         <input type="submit" value="enviar" />
-      </form>
+      </form> */}
       {/* <Botao/> */}
       {/* <Botao2 label='click aqui 1' aoClick={handleClik1}/>
       <Botao2 label='click aqui 2' aoClick={handleClik2}/>
