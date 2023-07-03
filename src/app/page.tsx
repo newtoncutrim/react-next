@@ -46,11 +46,18 @@ const Page = () => {
     setNum(num + 1);
   }
 
+  const [show, setShowSecret] = useState(false);
+  function showSecret(){
+    setShowSecret(!show);
+  }
 
   return (
     <div className="container mx-auto w-screen h-screen justify-center items-center flex flex-col">
       <p>{num}</p>
       <button onClick={click} className='bg-gray-300 p-4 justify-center items-center'>+1</button>
+
+      <button className='bg-white text-red-600' onClick={showSecret}>{show ? 'esconder aria secreta ' : 'mostrar area secreta'}</button>
+      { show && <div className='bg-slate-200 rounded-md p-3'>area secreta </div>}
       {/* <h1>Form de Login</h1>
       <form onSubmit={click}>
         <label htmlFor="nome" >Nome:</label><br />
