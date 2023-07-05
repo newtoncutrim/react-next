@@ -43,7 +43,10 @@ const Page = () => {
   } */
   const [num, setNum] = useState(0);
   function click(){
-    setNum(num + 1);
+    setNum(num + 2);
+    setNum(v => v + 2)
+    setNum(v => v + 2)
+    setNum((v) => v + 2)
   }
 
   const [show, setShowSecret] = useState(false);
