@@ -10,6 +10,7 @@ import { students } from '@/data/estudents';
 import { Botao } from '@/components/butoonEvent';
 import { Botao2 } from '@/components/buttonEvent2';
 import { FormEvent } from 'react';
+import { FullName } from '@/Types/fullName';
 
 /* const getDay = () => {
   return new Intl.DateTimeFormat('pt-BR', { weekday: 'long' }).format(new Date());
@@ -54,13 +55,24 @@ const Page = () => {
     setShowSecret(!show);
   }
 
+  const [fullName, setFullName] = useState<FullName>({name: 'newton', lastName: 'cutrim'})
+
+  function clear() {
+    setFullName({ ...fullName, name: '', lastName: ''})
+  }
+
+
   return (
     <div className="container mx-auto w-screen h-screen justify-center items-center flex flex-col">
-      <p>{num}</p>
-      <button onClick={click} className='bg-gray-300 p-4 justify-center items-center'>+1</button>
+      <input className='mb-4 text-black' onChange={(e) => setFullName({ ...fullName, name: e.target.value})} type="text"  value={fullName.name}/>
+      <input className='mb-4 text-black' type="text" onChange={e => setFullName({ ...fullName, lastName: e.target.value})} value={fullName.lastName}/>
+      <p>{ fullName.name} {fullName.lastName}</p>
+      <button onClick={clear} className='bg-red-900 p-5'>limpar</button>
+      {/* <p>{num}</p>
+      <button onClick={click} className='bg-gray-300 p-4 justify-center items-center'>+1</button> */}
 
-      <button className='bg-white text-red-600' onClick={showSecret}>{show ? 'esconder aria secreta ' : 'mostrar area secreta'}</button>
-      { show && <div className='bg-slate-200 rounded-md p-3'>area secreta </div>}
+      {/* <button className='bg-white text-red-600' onClick={showSecret}>{show ? 'esconder aria secreta ' : 'mostrar area secreta'}</button>
+      { show && <div className='bg-slate-200 rounded-md p-3'>area secreta </div>} */}
       {/* <h1>Form de Login</h1>
       <form onSubmit={click}>
         <label htmlFor="nome" >Nome:</label><br />
