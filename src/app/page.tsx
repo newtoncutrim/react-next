@@ -11,6 +11,7 @@ import { Botao } from '@/components/butoonEvent';
 import { Botao2 } from '@/components/buttonEvent2';
 import { FormEvent } from 'react';
 import { FullName } from '@/Types/fullName';
+import { List } from '@/Types/list';
 
 /* const getDay = () => {
   return new Intl.DateTimeFormat('pt-BR', { weekday: 'long' }).format(new Date());
@@ -61,16 +62,28 @@ const Page = () => {
     setFullName({ ...fullName, name: '', lastName: ''})
   }
 
+  const [list, setList] = useState<List[]>([
+    {name: 'fazer arroz', checked: false},
+    {name: 'fazer feijao', checked: false}
+  ]);
 
   return (
     <div className="container mx-auto w-screen h-screen justify-center items-center flex flex-col">
-      <input className='mb-4 text-black' onChange={(e) => setFullName({ ...fullName, name: e.target.value})} type="text"  value={fullName.name}/>
-      <input className='mb-4 text-black' type="text" onChange={e => setFullName({ ...fullName, lastName: e.target.value})} value={fullName.lastName}/>
-      <p>{ fullName.name} {fullName.lastName}</p>
-      <button onClick={clear} className='bg-red-900 p-5'>limpar</button>
-      {/* <p>{num}</p>
-      <button onClick={click} className='bg-gray-300 p-4 justify-center items-center'>+1</button> */}
+      <h1>LISTA DE TAREFA</h1>
+      <div>
+        <input type="text" placeholder='adicionar tarefa'/>
+        <button className='bg-blue-700'>adicionar</button>
+      </div>
 
+      <ul>
+        {list.map(item => (
+          <li>{item.name}</li>
+        ))}
+        
+      </ul>
+
+      {/* <input className='mb-4 text-black' onChange={(e) => setFullName({ ...fullName, name: e.target.value})} type="text"  value={fullName.name}/>
+      <input className='mb-4 text-black' type="text" onChange={e => setFuma aula de classes rapidão
       {/* <button className='bg-white text-red-600' onClick={showSecret}>{show ? 'esconder aria secreta ' : 'mostrar area secreta'}</button>
       { show && <div className='bg-slate-200 rounded-md p-3'>area secreta </div>} */}
       {/* <h1>Form de Login</h1>
@@ -79,7 +92,8 @@ const Page = () => {
         <input type="text" />
         <input type="submit" value="enviar" />
       </form> */}
-      {/* <Botao/> */}
+      {/* <Botao/> */}     
+
       {/* <Botao2 label='click aqui 1' aoClick={handleClik1}/>
       <Botao2 label='click aqui 2' aoClick={handleClik2}/>
       <Botao2 label='click aqui 3' aoClick={handleClik3}/> */}
