@@ -85,6 +85,7 @@ const Page = () => {
         newList[i].checked = !newList[i].checked
       }
     }
+    /*  */
     setList(newList)
   }
 
