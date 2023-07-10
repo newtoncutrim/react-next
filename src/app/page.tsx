@@ -62,22 +62,45 @@ const Page = () => {
     setFullName({ ...fullName, name: '', lastName: ''})
   }
 
+  const [itemInput, setItemInput] = useState('');
   const [list, setList] = useState<List[]>([
-    {name: 'fazer arroz', checked: false},
-    {name: 'fazer feijao', checked: false}
+    {id: 1, name: 'fazer arroz', checked: false},
   ]);
+
+  function add(){
+    if(itemInput == '') return;
+    setList([...list, {id: list.length ,name: itemInput, checked: false}])
+    setItemInput('')
+  }
+  
+  function deletItem(id: number){
+    setList(list.filter((item => item.id !== id)))
+  }
+
+  function check(id: number){
+    let newList = [...list];
+    
+    for(let i in newList){
+      if(newList[i].id === id){
+        newList[i].checked = !newList[i].checked
+      }
+    }
+    setList(newList)
+  }
 
   return (
     <div className="container mx-auto w-screen h-screen justify-center items-center flex flex-col">
       <h1>LISTA DE TAREFA</h1>
       <div>
-        <input type="text" placeholder='adicionar tarefa'/>
-        <button className='bg-blue-700'>adicionar</button>
+        <input className='text-black' value={itemInput} onChange={(e) => setItemInput(e.target.value)} type="text" placeholder='adicionar tarefa'/>
+        <button onClick={add} className='bg-blue-700'>adicionar</button>
       </div>
-
+      <p>contem {list.length} tarefas</p>
       <ul>
-        {list.map(item => (
-          <li>{item.name}</li>
+        {list.map((item) => (
+          <li  key={item.id}> 
+          <input type="checkbox" checked={item.checked} onClick={() => check(item.id)} />
+          {item.name} <button onClick={() => deletItem(item.id)}>[deletar]</button></li>
         ))}
         
       </ul>
