@@ -9,7 +9,7 @@ export type Props = {
 export const FotoItem = ({foto, onClick}: Props) => {
     return (
         <div onClick={onClick} className="cursor-pointer hover:opacity-90">
-            <img src={`/assets/${foto.url}`} alt="" className="w-full"/>
+            <img src={`http://localhost:3000/assets/${foto.url}`} alt="" className="w-full"/>
         </div>
     );
 }
