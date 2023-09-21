@@ -1,13 +1,16 @@
-import React from "react";
+import React, { ReactNode } from "react";
 type Props = {
-    name: string;
-    url: string;
+    name?: string;
+    url?: string; //opcional
+    content?: ReactNode;
 }
-export const Person = ({name, url}: Props) => {
+//passando conteudo para dentro do elemento com chieldren
+export const Person = ({name, url = '', content}: Props) => {
     return (
         <>
-            <h1>Nome: {name}</h1>
+            <h1>Nome: {name ?? 'algum nome'}</h1>
             <a href={url}>LinK mapa</a>
+            {content}
         </>
     );  
 }
