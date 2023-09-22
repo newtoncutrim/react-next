@@ -7,7 +7,7 @@ const Teste = () => {
         <>
             <p>ola </p>
             <Formulario/>
-            <Person name='newton cutrim' url='opcional'/>
+            <Person name='newton cutrim' url='opcional' content='temos conteudo'/>
             <p>conteudo do chieldrn</p>
         </>
     );

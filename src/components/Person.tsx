@@ -10,7 +10,9 @@ export const Person = ({name, url = '', content}: Props) => {
         <>
             <h1>Nome: {name ?? 'algum nome'}</h1>
             <a href={url}>LinK mapa</a>
-            {content}
+            {/* conteudo filho */}
+            {content && <h1>ola sou o conteudo da condicional</h1>}
+            
         </>
     );  
 }
