@@ -4,19 +4,19 @@ import {Person} from "@/components/Person";
 import {People} from "@/components/People";
 import {Hora} from "@/components/Hora";
 import {EventClick} from "@/components/EventClick";
+import { FormEvent } from 'react';
 const Teste = () => {
-    function handleAlert() {
-        window.alert("Clicando no botão 1");
+    const handleAlert = (e: FormEvent) => {
+        e.preventDefault();
+        alert("carregando");
     }
     return (
         <>
-{/*             <p>ola </p>
-            <Formulario/>
-            <Person name='newton cutrim' url='opcional' content='temos conteudo'/>
-            <p>conteudo do chieldrn</p>
-            <People/> */}
-            <Hora/>
-            <EventClick aoClicar={handleAlert}/>
+            <form onSubmit={handleAlert}>
+                <h1>teste</h1>
+                <input type="text" />
+                <button type="submit">enviar</button>
+            </form>
         </>
     );
 }
